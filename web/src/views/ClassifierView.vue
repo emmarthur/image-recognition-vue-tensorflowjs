@@ -56,7 +56,7 @@ onMounted(() => {
   <div>
     <h2 class="h4 mb-3">Image classification (MobileNet)</h2>
     <div class="mb-3">
-      <label class="form-label">Upload an image (book uses a fixed sample URL)</label>
+      <label class="form-label">Upload an image</label>
       <input
         type="file"
         accept="image/*"

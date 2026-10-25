@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
+import DemoHelpSection from "@/components/DemoHelpSection.vue";
 </script>
 
 <template>
@@ -14,10 +15,8 @@ import { RouterLink, RouterView } from "vue-router";
       </div>
     </nav>
     <main class="container pb-5">
-      <p class="text-muted small">
-        Book-guided demo #992 — Peter O'Hanlon, Ch. 9 (MobileNet + PoseNet)
-      </p>
       <RouterView />
+      <DemoHelpSection />
     </main>
   </div>
 </template>
