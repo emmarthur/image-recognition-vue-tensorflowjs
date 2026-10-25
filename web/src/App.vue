@@ -4,17 +4,22 @@ import DemoHelpSection from "@/components/DemoHelpSection.vue";
 </script>
 
 <template>
-  <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info mb-4">
-      <div class="container">
-        <span class="navbar-brand mb-0 h1">TensorFlow.js Demo</span>
-        <div class="navbar-nav">
-          <RouterLink class="nav-link" to="/">Classifier</RouterLink>
-          <RouterLink class="nav-link" to="/pose">Pose</RouterLink>
-        </div>
+  <div class="tf-shell">
+    <div class="tf-blob tf-blob-a" aria-hidden="true" />
+    <div class="tf-blob tf-blob-b" aria-hidden="true" />
+
+    <header class="tf-nav">
+      <div class="tf-brand">
+        <span class="tf-brand-icon" aria-hidden="true">🧠</span>
+        <h1 class="tf-title">TensorFlow.js Demo</h1>
       </div>
-    </nav>
-    <main class="container pb-5">
+      <nav class="tf-nav-links" aria-label="Demo pages">
+        <RouterLink to="/">Classifier</RouterLink>
+        <RouterLink to="/pose">Pose</RouterLink>
+      </nav>
+    </header>
+
+    <main class="tf-main">
       <RouterView />
       <DemoHelpSection />
     </main>

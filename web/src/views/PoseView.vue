@@ -3,7 +3,6 @@ import { nextTick, onMounted, ref } from "vue";
 import { PoseClassifier } from "@/models/PoseClassifier";
 import type { Keypoint } from "@tensorflow-models/posenet";
 
-// Book Pose.vue: image + overlay canvas + keypoint table.
 const classifier = new PoseClassifier();
 const imageRef = ref<HTMLImageElement | null>(null);
 const canvasRef = ref<HTMLCanvasElement | null>(null);
@@ -25,7 +24,6 @@ async function runPose(): Promise<void> {
     loading.value = false;
     return;
   }
-  // Match canvas resolution to the image so joint coordinates line up.
   canvas.width = image.naturalWidth;
   canvas.height = image.naturalHeight;
   try {
@@ -57,18 +55,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <h2 class="h4 mb-3">Pose detection (PoseNet)</h2>
+  <div class="tf-card">
+    <h2 class="tf-page-title">Pose detection (PoseNet)</h2>
     <div class="mb-3">
-      <label class="form-label">Upload a photo with a person</label>
+      <label class="tf-label">Upload a photo with a person</label>
       <input
         type="file"
         accept="image/*"
-        class="form-control"
+        class="tf-input"
         @change="onFileChange"
       />
     </div>
-    <div class="pose-stack mb-4" style="max-width: 720px">
+    <div class="pose-stack" style="max-width: 720px">
       <img
         ref="imageRef"
         crossorigin="anonymous"
@@ -78,10 +76,12 @@ onMounted(() => {
       />
       <canvas ref="canvasRef" />
     </div>
-    <p v-if="loading" class="text-info">Loading model / detecting pose…</p>
-    <p v-if="error" class="text-danger">{{ error }}</p>
-    <div v-if="keypoints?.length" class="table-responsive">
-      <table class="table table-striped table-sm">
+    <p v-if="loading" class="tf-status tf-status--loading">
+      Loading model / detecting pose…
+    </p>
+    <p v-if="error" class="tf-status tf-status--error">{{ error }}</p>
+    <div v-if="keypoints?.length" class="tf-table-wrap">
+      <table class="tf-table">
         <thead>
           <tr>
             <th>Confidence</th>
