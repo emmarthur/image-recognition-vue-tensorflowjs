@@ -3,6 +3,7 @@ import { nextTick, onMounted, ref } from "vue";
 import { PoseClassifier } from "@/models/PoseClassifier";
 import type { Keypoint } from "@tensorflow-models/posenet";
 
+// Book Pose.vue: image + overlay canvas + keypoint table.
 const classifier = new PoseClassifier();
 const imageRef = ref<HTMLImageElement | null>(null);
 const canvasRef = ref<HTMLCanvasElement | null>(null);
@@ -24,6 +25,7 @@ async function runPose(): Promise<void> {
     loading.value = false;
     return;
   }
+  // Match canvas resolution to the image so joint coordinates line up.
   canvas.width = image.naturalWidth;
   canvas.height = image.naturalHeight;
   try {

@@ -1,5 +1,6 @@
 import type { Keypoint } from "@tensorflow-models/posenet";
 
+/** Draws book-style red squares at each PoseNet keypoint on a covering canvas. */
 export class DrawPose {
   private context: CanvasRenderingContext2D;
 

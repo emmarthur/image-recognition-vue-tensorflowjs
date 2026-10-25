@@ -3,6 +3,7 @@ import { nextTick, onMounted, ref } from "vue";
 import { ImageClassifier } from "@/models/ImageClassifier";
 import type { TensorInformation } from "@/models/TensorInformation";
 
+// Book HelloWorld.vue: load image, run MobileNet once, list predictions.
 const classifier = new ImageClassifier();
 const imageRef = ref<HTMLImageElement | null>(null);
 const tensors = ref<TensorInformation[] | null>(null);
@@ -40,6 +41,7 @@ function onFileChange(event: Event): void {
   const input = event.target as HTMLInputElement;
   const file = input.files?.[0];
   if (!file || !imageRef.value) return;
+  // Local files avoid CORS issues with hotlinked sample URLs.
   imageRef.value.src = URL.createObjectURL(file);
 }
 
