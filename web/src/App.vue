@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import DemoHelpSection from "@/components/DemoHelpSection.vue";
+import HelpJumpButton from "@/components/HelpJumpButton.vue";
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import DemoHelpSection from "@/components/DemoHelpSection.vue";
       <nav class="tf-nav-links" aria-label="Demo pages">
         <RouterLink to="/">Classifier</RouterLink>
         <RouterLink to="/pose">Pose</RouterLink>
+        <HelpJumpButton />
       </nav>
     </header>
 

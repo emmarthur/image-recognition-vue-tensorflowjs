@@ -121,6 +121,25 @@ body {
   border-color: rgba(167, 139, 250, 0.4);
 }
 
+.tf-nav-links .help-jump-btn {
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--tf-muted);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tf-nav-links .help-jump-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
 .tf-main {
   position: relative;
   z-index: 1;
